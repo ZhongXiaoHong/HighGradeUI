@@ -26,7 +26,7 @@ enabled.
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <ViewStub android:id="@+id/action_mode_bar_stub"
+<!--    <ViewStub android:id="@+id/action_mode_bar_stub"
               android:inflatedId="@+id/action_mode_bar"
               android:layout="@layout/action_mode_bar"
               android:layout_width="match_parent"
@@ -38,5 +38,5 @@ enabled.
          android:layout_height="match_parent"
          android:foregroundInsidePadding="false"
          android:foregroundGravity="fill_horizontal|top"
-         android:foreground="?android:attr/windowContentOverlay" />
+         android:foreground="?android:attr/windowContentOverlay" />-->
 </LinearLayout>
