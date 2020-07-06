@@ -1,2 +1,4 @@
+include ':mydn_skin_core'
+include ':skin_core'
 include ':app'
 rootProject.name = "HighGradeUI"
