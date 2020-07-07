@@ -2,16 +2,13 @@ package dynamic_change_skin;
 
 import android.app.Application;
 
-import com.example.skin_core.SkinManager;
+import com.silang.mydn_skin_core.DnSkinManager;
 
-
-public class MyApplication extends Application {
+public class DnApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        SkinManager.init(this);
-
-
+        DnSkinManager.init(this);
     }
 }

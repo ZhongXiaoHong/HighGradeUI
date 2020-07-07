@@ -33,7 +33,7 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.google.android.material:material:1.0.0"
-    implementation project(':skin_core')
+    implementation project(':mydn_skin_core')
 
 }
 repositories {

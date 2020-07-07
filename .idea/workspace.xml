@@ -10,6 +10,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="f0dd2973-3fc0-4744-918f-36bfea15349d" name="Default Changelist" comment="" />
+=======
     <list default="true" id="f0dd2973-3fc0-4744-918f-36bfea15349d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
@@ -76,6 +79,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+>>>>>>> c1a593d05854fa5e2dfc93f23179aa6499df3a2e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -263,6 +267,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="341" y="147" key="SettingsEditor/0.0.1680.1010/1680.0.1920.1040@0.0.1680.1010" timestamp="1593990148773" />
+<<<<<<< HEAD
+    <state x="569" y="368" key="com.intellij.ide.util.TipDialog" timestamp="1594037841917">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="569" y="368" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.0.1920.1040@0.0.1680.1010" timestamp="1594037841917" />
+    <state x="1978" y="41" width="1050" height="940" maximized="true" key="dock-window-1" timestamp="1593947993279">
+      <screen x="1680" y="0" width="1920" height="1040" />
+=======
     <state x="390" y="151" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1594025913477" />
     <state x="650" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1594084929843">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -271,6 +283,7 @@
     <state x="650" y="379" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1594084929843" />
     <state x="2109" y="0" width="977" height="916" maximized="true" key="dock-window-1" timestamp="1594027599485">
       <screen x="1920" y="0" width="1920" height="1080" />
+>>>>>>> c1a593d05854fa5e2dfc93f23179aa6499df3a2e
     </state>
     <state x="1978" y="41" width="1050" height="940" maximized="true" key="dock-window-1/0.0.1680.1010/1680.0.1920.1040@0.0.1680.1010" timestamp="1593947993279" />
     <state x="130" y="0" width="1050" height="940" key="dock-window-1/0.0.1680.1010/1680.0.1920.1040@1680.0.1920.1040" timestamp="1593934400756" />

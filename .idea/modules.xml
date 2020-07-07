@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HighGradeUI.iml" filepath="$PROJECT_DIR$/.idea/modules/HighGradeUI.iml" group="HighGradeUI" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/HighGradeUI-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/HighGradeUI-app.iml" group="HighGradeUI/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/skin_core/HighGradeUI-skin_core.iml" filepath="$PROJECT_DIR$/.idea/modules/skin_core/HighGradeUI-skin_core.iml" group="HighGradeUI/skin_core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="HighGradeUI/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mydn_skin_core/mydn_skin_core.iml" filepath="$PROJECT_DIR$/.idea/modules/mydn_skin_core/mydn_skin_core.iml" group="HighGradeUI/mydn_skin_core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/skin_core/skin_core.iml" filepath="$PROJECT_DIR$/.idea/modules/skin_core/skin_core.iml" group="HighGradeUI/skin_core" />
     </modules>
   </component>
