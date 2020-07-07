@@ -1,27 +1,28 @@
 package dynamic_change_skin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.os.EnvironmentCompat;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import com.silang.highgradeui.R;
-import com.silang.mydn_skin_core.DnSkinManager;
+import com.silang.highgradeui.TestViewPagerActivity;
+import com.silang.my_skin_core.SkinManager;
 
-import java.io.File;
-import java.io.IOException;
 
 public class TestResourceImplUsageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("zhong","*******************setContentView前**************");
         setContentView(R.layout.activity_test_resource_impl_usage);
+        Log.d("zhong","*******************setContentView后**************");
+
 
     }
 
@@ -42,22 +43,10 @@ public class TestResourceImplUsageActivity extends AppCompatActivity {
     public void dotext(View view) {
 
 
-//        try {
-//            String[] files = getAssets().list("/assets/");
-//            for (String file : files) {
-//                if (file.contains("dn_skin_pk")) {
-//
-//                    break;
-//
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+     //startActivity(new Intent(this, TestViewPagerActivity.class));
 
-        DnSkinManager.getInstance().loadSkin(Environment.getExternalStorageDirectory()+"/dn_skin_pk.apk");
-
-
+       // MySkinManager.getInstance().loadSkin("assets/my_skin_pk.apk");
+        SkinManager.getInstance().loadSkin(Environment.getExternalStorageDirectory()+"/Pictures/my_skin_pk.zip");
 
 
     }
