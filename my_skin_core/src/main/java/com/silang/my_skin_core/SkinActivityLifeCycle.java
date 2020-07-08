@@ -31,6 +31,7 @@ public class SkinActivityLifeCycle implements Application.ActivityLifecycleCallb
         Log.d("zhong","*******************onActivityCreated**************");
         LayoutInflater inflater = LayoutInflater.from(activity);
         Log.d("zhong","*******************LayoutInflater = **************"+ activity.getClass().getName()+"-----"+inflater.hashCode());
+        Log.d("zhong","*******************activity.getWindow().getLayoutInflater = **************"+ activity.getWindow().getLayoutInflater().hashCode());
         try {
 
             //TODO mFactorySet 不同的版本Inflater的具体实现类不同，

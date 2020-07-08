@@ -7,10 +7,10 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.silang.highgradeui.R;
-import com.silang.highgradeui.TestViewPagerActivity;
 import com.silang.my_skin_core.SkinManager;
 
 
@@ -23,7 +23,12 @@ public class TestResourceImplUsageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_resource_impl_usage);
         Log.d("zhong","*******************setContentView后**************");
 
+        LayoutInflater layoutInflater1 = LayoutInflater.from(TestResourceImplUsageActivity.this);
+        LayoutInflater layoutInflater2 = TestResourceImplUsageActivity.this.getWindow().getLayoutInflater();
+        LayoutInflater layoutInflater3 = LayoutInflater.from(TestResourceImplUsageActivity.this.getApplicationContext());
 
+
+        Log.d("zhong","*************");
     }
 
 

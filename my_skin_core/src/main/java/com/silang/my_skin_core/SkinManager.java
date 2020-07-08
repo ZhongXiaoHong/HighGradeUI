@@ -56,6 +56,7 @@ public class SkinManager extends Observable {
 
         } else {
             try {
+
                 AssetManager assetManager = AssetManager.class.newInstance();
                 Method addAssetPathMethod = assetManager.getClass().getDeclaredMethod("addAssetPath", String.class);//   addAssetPath
                 addAssetPathMethod.setAccessible(true);

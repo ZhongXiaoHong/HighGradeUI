@@ -61,7 +61,9 @@
 
 
 
-> 自身的测量宽高如何计算
+> View/ViewGroup自身的测量宽高如何计算
+
+
 
 1. 使用getDefaultSize,会使得孩子的wrap_content失效，如ViewPager
 
@@ -101,11 +103,154 @@
 
    
 
-2. 
+
+2.使用View的静态方法resolveSizeAndState，谁这么干的FrameLayout、LinearLayout都是这么干的
+
+```java
+public static int resolveSizeAndState(int size, int measureSpec, int childMeasuredState) {
+        final int specMode = MeasureSpec.getMode(measureSpec);
+        final int specSize = MeasureSpec.getSize(measureSpec);
+        final int result;
+        switch (specMode) {
+            case MeasureSpec.AT_MOST:
+                if (specSize < size) {
+                    result = specSize | MEASURED_STATE_TOO_SMALL;
+                } else {
+                    result = size;
+                }
+                break;
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+            case MeasureSpec.UNSPECIFIED:
+            default:
+                result = size;
+        }
+        return result | (childMeasuredState & MEASURED_STATE_MASK);
+}
+```
+
+
+
+3.resolveSizeAndState方法的简化版，不要state逻辑
+
+```java
+public static int resolveSize(int size, int measureSpec) {
+
+        final int specMode = MeasureSpec.getMode(measureSpec);
+        final int specSize = MeasureSpec.getSize(measureSpec);
+        final int result;
+        switch (specMode) {
+            case MeasureSpec.AT_MOST:
+                    result = size;
+                break;
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+            case MeasureSpec.UNSPECIFIED:
+            default:
+                result = size;
+        }
+        return result ;
+}
+```
+
+【3】是一般的测量宽高计算方法，如果布局特性需要则可能要调整，比如ViewPager使用【1】
 
 
 
 
+
+> 生成孩子的MeasureSpec
+
+1.调用ViewGroup的静态方法getChildMeasureSpec，就是对应艺术探索总结的表格
+
+```java
+  public static int getChildMeasureSpec(int spec, int padding, int childDimension) {
+        int specMode = MeasureSpec.getMode(spec);
+        int specSize = MeasureSpec.getSize(spec);
+
+        int size = Math.max(0, specSize - padding);
+
+        int resultSize = 0;
+        int resultMode = 0;
+
+        switch (specMode) {
+        // Parent has imposed an exact size on us
+        case MeasureSpec.EXACTLY:
+            if (childDimension >= 0) {
+                resultSize = childDimension;
+                resultMode = MeasureSpec.EXACTLY;
+            } else if (childDimension == LayoutParams.MATCH_PARENT) {
+                // Child wants to be our size. So be it.
+                resultSize = size;
+                resultMode = MeasureSpec.EXACTLY;
+            } else if (childDimension == LayoutParams.WRAP_CONTENT) {
+                // Child wants to determine its own size. It can't be
+                // bigger than us.
+                resultSize = size;
+                resultMode = MeasureSpec.AT_MOST;
+            }
+            break;
+
+        // Parent has imposed a maximum size on us
+        case MeasureSpec.AT_MOST:
+            if (childDimension >= 0) {
+                // Child wants a specific size... so be it
+                resultSize = childDimension;
+                resultMode = MeasureSpec.EXACTLY;
+            } else if (childDimension == LayoutParams.MATCH_PARENT) {
+                // Child wants to be our size, but our size is not fixed.
+                // Constrain child to not be bigger than us.
+                resultSize = size;
+                resultMode = MeasureSpec.AT_MOST;
+            } else if (childDimension == LayoutParams.WRAP_CONTENT) {
+                // Child wants to determine its own size. It can't be
+                // bigger than us.
+                resultSize = size;
+                resultMode = MeasureSpec.AT_MOST;
+            }
+            break;
+
+        // Parent asked to see how big we want to be
+        case MeasureSpec.UNSPECIFIED:
+            if (childDimension >= 0) {
+                // Child wants a specific size... let him have it
+                resultSize = childDimension;
+                resultMode = MeasureSpec.EXACTLY;
+            } else if (childDimension == LayoutParams.MATCH_PARENT) {
+                // Child wants to be our size... find out how big it should
+                // be
+                resultSize = View.sUseZeroUnspecifiedMeasureSpec ? 0 : size;
+                resultMode = MeasureSpec.UNSPECIFIED;
+            } else if (childDimension == LayoutParams.WRAP_CONTENT) {
+                // Child wants to determine its own size.... find out how
+                // big it should be
+                resultSize = View.sUseZeroUnspecifiedMeasureSpec ? 0 : size;
+                resultMode = MeasureSpec.UNSPECIFIED;
+            }
+            break;
+        }
+        //noinspection ResourceType
+        return MeasureSpec.makeMeasureSpec(resultSize, resultMode);
+    }
+```
+
+2.直接使用 MeasureSpec.makeMeasureSpec方法为孩子生成，比如FramLayout
+
+```java
+ if (lp.width == LayoutParams.MATCH_PARENT) {
+                    final int width = Math.max(0, getMeasuredWidth()
+                            - getPaddingLeftWithForeground() - getPaddingRightWithForeground()
+                            - lp.leftMargin - lp.rightMargin);
+                    childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(
+                            width, MeasureSpec.EXACTLY);
+                } 
+```
+
+如果孩子是 LayoutParams.MATCH_PARENT，则使用上面代码生成MeasureSPec,
+
+所以【1】生成孩子的MeasureSpec一般的方法，如果布局的特性需要可能需要做调整，如FrameLayout 在孩子是LayoutParams.MATCH_PARENT时候使用【2】其他情况使用【1】，这是考虑布局特性的结果
 
 
 
@@ -113,7 +258,9 @@
 
 > MeasureSpec测量规模
 
-MeasureSpec是View的内部类，它是一个类，不是一个int值，它可以被当作是一个工具类，里面有一套算法封包、拆包
+MeasureSpec是View的内部类，它是一个类，不是一个int值，它可以被当作是一个工具类，里面有一套算法封包、拆包，而onMeasure方法接收的两个int的参数是表示View的测量规格，它可以被MeasureSpec这个类解析，从高2位分离出一个int 表示测量模式Mode,这个值可以使EXZATLY、AT_MOST、UN_SPECTIFY
+
+从低30位分离出一个int表示测量大小，
 
 
 
@@ -180,6 +327,14 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 > 自定义ViewGroup的流程
 
+1.自定义ViewGroup的主要工作在于onMeasure和onLayout
+
+2.重写onMeasure,生成孩子的MeasureSpec，然后调用孩子的Measure方法将测量规格传入，
+
+3.这样孩子的onMeasure方法会被回调，最终计算孩子的测量宽高
+
+4.根据孩子的测量宽高+ViewGroup自身的测量规格，计算ViewGroup自身的测量宽高，调用setMeasureDimention设置ViewGroup的测量宽高
+
 
 
 > View的绘制流程
@@ -200,17 +355,19 @@ LayoutParams是被用来告诉父View怎么去layout子View的，LayoutParams描
 
 
 
-一个View的onMeasure(int widthMeasureSpec, int heightMeasureSpec)拿到的只是父亲帮忙计算好的MeasureSpec，这个MeasureSpec包含模式+大小，这个大小不是测量值只是参考值，测量值还是要子View在onMeasure根据具体需求去计算，然后最终去setMeasureDimen保存。
 
-
-
-也就是一个View的OnMeasure主要的任务就是计算自身的测量宽高，如果这个View是ViewGroup的话还会帮忙计算孩子们的MeasureSpec,并调用孩子们的measure让他们计算自身的测量宽高
 
 
 
 > 面试题3：为什么要measure
 
 
+
+一个View的onMeasure(int widthMeasureSpec, int heightMeasureSpec)拿到的只是父亲帮忙计算好的MeasureSpec，这个MeasureSpec包含模式+大小，这个大小不是测量值只是参考值，测量值还是要子View在onMeasure根据具体需求去计算，然后最终去setMeasureDimen保存。
+
+
+
+也就是一个View的OnMeasure主要的任务就是计算自身的测量宽高，如果这个View是ViewGroup的话还会帮忙计算孩子们的MeasureSpec,并调用孩子们的measure让他们计算自身的测量宽高
 
 拓展：20：54
 
