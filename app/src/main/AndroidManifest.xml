@@ -14,17 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestGoogleFlexboxLayoutActivity">
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix"></activity>
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
+        <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
+        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity">
-
-        </activity>
+        <activity android:name=".TestGoogleFlexboxLayoutActivity" />
+        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
         <activity android:name=".TestViewPagerActivity" />
     </application>
 

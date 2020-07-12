@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.activity_test_google_flexbox_layout.*
 
 
 class TestGoogleFlexboxLayoutActivity : AppCompatActivity() {
-
+/*
     private val images = arrayOf<Int>(
             R.drawable.image1,
             R.drawable.image2,
@@ -50,5 +50,5 @@ class TestGoogleFlexboxLayoutActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_google_flexbox_layout)
         rvFlex.adapter = RvFlexAdapter(items, this)
     }
-
+*/
 }
