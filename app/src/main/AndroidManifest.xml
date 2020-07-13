@@ -43,8 +43,9 @@
         <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
         <activity android:name=".TestViewPagerActivity">
 
-
         </activity>
+        <!--swipeRefresh_viewpage滑动冲突特殊之处-->
+        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main"/>
     </application>
 
 </manifest>
