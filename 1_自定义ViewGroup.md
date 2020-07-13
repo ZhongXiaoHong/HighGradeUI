@@ -337,6 +337,18 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 
 
+> 助记：MeasureSpec生成规则
+
+![](image\7131637.jpg)
+
+
+
+
+
+
+
+
+
 > View的绘制流程
 
 

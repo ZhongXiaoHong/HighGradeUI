@@ -19,15 +19,18 @@
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
         <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
         <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity">
+
+        </activity>
+        <activity android:name=".TestGoogleFlexboxLayoutActivity" />
+        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
+        <activity android:name=".TestViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".TestGoogleFlexboxLayoutActivity" />
-        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
-        <activity android:name=".TestViewPagerActivity" />
     </application>
 
 </manifest>

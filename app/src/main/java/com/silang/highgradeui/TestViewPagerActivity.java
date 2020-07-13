@@ -15,7 +15,8 @@ import java.util.List;
 
 public class TestViewPagerActivity extends AppCompatActivity {
 
-    ViewPager vp;
+   // ViewPager vp;
+    MyViewPager vp;
     List<View> mViews = new ArrayList<>();
 
     @Override
