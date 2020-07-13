@@ -1,6 +1,7 @@
 package implement_taobao_home_page;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import androidx.core.widget.NestedScrollView;
  * 实现TabLayout吸顶
  * 通过设置TabLayout+ViewPager == 屏幕高度 == NestedScrollViewWithStivkyHeader高度
  */
-public class NestedScrollViewWithStivkyHeader  extends NestedScrollView {
+public class NestedScrollViewWithStivkyHeader extends NestedScrollView {
 
     private View contentView;  //TabLayout+ViewPager的父布局
 
@@ -33,14 +34,26 @@ public class NestedScrollViewWithStivkyHeader  extends NestedScrollView {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-       contentView =  ((ViewGroup)getChildAt(0)).getChildAt(1);
+        contentView = ((ViewGroup) getChildAt(0)).getChildAt(1);
     }
 
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        ViewGroup.LayoutParams lp = contentView.getLayoutParams();
+//        lp.height = getMeasuredHeight();
+//        contentView.setLayoutParams(lp);
+//    }
+
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
         ViewGroup.LayoutParams lp = contentView.getLayoutParams();
-        lp.height = getMeasuredHeight();
-        contentView.setLayoutParams(lp);
+
+        if (lp.height != getMeasuredHeight()) {
+
+            lp.height = getMeasuredHeight();
+            contentView.setLayoutParams(lp);
+        }
     }
 }

@@ -365,15 +365,9 @@ LayoutParams是被用来告诉父View怎么去layout子View的，LayoutParams描
 
 一个View的onMeasure(int widthMeasureSpec, int heightMeasureSpec)拿到的只是父亲帮忙计算好的MeasureSpec，这个MeasureSpec包含模式+大小，这个大小不是测量值只是参考值，测量值还是要子View在onMeasure根据具体需求去计算，然后最终去setMeasureDimen保存。
 
-
-
 也就是一个View的OnMeasure主要的任务就是计算自身的测量宽高，如果这个View是ViewGroup的话还会帮忙计算孩子们的MeasureSpec,并调用孩子们的measure让他们计算自身的测量宽高
 
-拓展：20：54
 
-1--50--29
-
-https://www.jianshu.com/p/0723ff4123e1
 
 
 
