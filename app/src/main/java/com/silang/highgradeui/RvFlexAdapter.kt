@@ -25,8 +25,6 @@ class RvFlexAdapter(val items: List<Int>,val context:Context) : RecyclerView.Ada
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
-
         ViewCompat.setBackground( holder.itemView,context.getDrawable(items[position]))
     }
 

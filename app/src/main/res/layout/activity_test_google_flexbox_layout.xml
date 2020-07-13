@@ -87,9 +87,5 @@
 
     </com.google.android.flexbox.FlexboxLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFlex"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>
