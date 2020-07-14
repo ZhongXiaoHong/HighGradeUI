@@ -14,23 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix">
-
-
-        </activity>
-        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
-        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
-        <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
-        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity">
-
-        </activity>
-        <activity android:name=".TestGoogleFlexboxLayoutActivity">
-
-
-        </activity>
-
-
-        <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity">
+        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,14 +22,18 @@
             </intent-filter>
 
         </activity>
-
-
-        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
-        <activity android:name=".TestViewPagerActivity">
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix"></activity>
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
+        <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
+        <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
+        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity"></activity>
+        <activity android:name=".TestGoogleFlexboxLayoutActivity"></activity>
+        <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity">
 
         </activity>
-        <!--swipeRefresh_viewpage滑动冲突特殊之处-->
-        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main"/>
+        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
+        <activity android:name=".TestViewPagerActivity"></activity> <!-- swipeRefresh_viewpage滑动冲突特殊之处 -->
+        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main" />
     </application>
 
 </manifest>
