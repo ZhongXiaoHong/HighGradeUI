@@ -77,7 +77,8 @@ public class CustomSRL2 extends SwipeRefreshLayout {
                 method = clazz.getDeclaredMethod("requestDisallowInterceptTouchEvent", boolean.class);
             }
             method.setAccessible(true);
-            method.invoke(this, b);
+            Object obj = (ViewGroup)this;
+            method.invoke(obj, b);
         } catch (Exception e) {
             e.printStackTrace();
         }

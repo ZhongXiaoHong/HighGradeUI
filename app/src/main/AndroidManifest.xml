@@ -31,11 +31,7 @@
 
 
         <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -45,7 +41,13 @@
 
         </activity>
         <!--swipeRefresh_viewpage滑动冲突特殊之处-->
-        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main"/>
+        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
