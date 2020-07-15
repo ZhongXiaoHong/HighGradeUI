@@ -4,4 +4,6 @@
         <attr name="corcleColor" format="color"/>
         <attr name="skinTypeface" format="string"/>
     </declare-styleable>
+
+
 </resources>

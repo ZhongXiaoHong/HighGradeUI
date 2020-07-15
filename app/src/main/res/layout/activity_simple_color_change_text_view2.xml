@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="toutiao_indicator_text.SimpleColorChangeTextViewActivity">
 
-    <toutiao_indicator_text.SimpleColorChangeTextView
+    <toutiao_indicator_text.SimpleColorChangeTextView2
 
         android:id="@+id/st"
         android:layout_width="match_parent"
