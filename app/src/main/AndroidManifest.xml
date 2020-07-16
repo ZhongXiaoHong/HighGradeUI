@@ -33,7 +33,7 @@
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
         <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
-<<<<<<< HEAD
+
         <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity"></activity>
         <activity android:name=".TestGoogleFlexboxLayoutActivity"></activity>
         <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity">
@@ -51,14 +51,7 @@
         <activity android:name=".TestViewPagerActivity"></activity>
 
 
-=======
-        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity" />
-        <activity android:name=".TestGoogleFlexboxLayoutActivity" />
-        <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity"></activity>
-        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
-        <activity android:name=".TestViewPagerActivity" /> <!-- swipeRefresh_viewpage滑动冲突特殊之处 -->
-        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main" />
->>>>>>> 3d02d6803fbf14ff4af8015213f22210eb392392
+
     </application>
 
 </manifest>
