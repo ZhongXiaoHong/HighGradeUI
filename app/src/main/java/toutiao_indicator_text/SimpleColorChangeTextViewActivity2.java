@@ -3,33 +3,22 @@ package toutiao_indicator_text;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
-
-import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
 
 import com.silang.highgradeui.R;
 
-public class SimpleColorChangeTextViewActivity extends AppCompatActivity {
+//TODO  SimpleColorChangeTextViewActivity2
+//TODO 优化SimpleColorChangeTextView 过渡绘制的问题
+public class SimpleColorChangeTextViewActivity2 extends AppCompatActivity {
 
-    SimpleColorChangeTextView st;
+    SimpleColorChangeTextView2 st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_color_change_text_view);
-
-        st.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SimpleColorChangeTextViewActivity.this, SimpleColorChangeTextViewActivity2.class));
-            }
-        });
+        setContentView(R.layout.activity_simple_color_change_text_view2);
+        st = findViewById(R.id.st);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -40,6 +29,5 @@ public class SimpleColorChangeTextViewActivity extends AppCompatActivity {
             }
 
         }, 2000);
-
     }
 }
