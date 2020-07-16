@@ -14,11 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity2"></activity>
-        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity">
-
-        </activity>
-
+        <activity android:name="moving_fish.MovingFishActivity"></activity>
+        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity2" />
+        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity"></activity>
         <activity android:name="toutiao_indicator_text.ViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,31 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />
         <activity android:name="implement_taobao_home_page.ScrollViewRecyclerViewActivity" />
-
-        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity"></activity>
-        <activity android:name=".TestGoogleFlexboxLayoutActivity"></activity>
-        <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity">
-
-
-        </activity>
-        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" />
-
-
-        <!--swipeRefresh_viewpage滑动冲突特殊之处-->
-        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main">
-
-        </activity>
-
-        <activity android:name=".TestViewPagerActivity"></activity>
-
-
-
+        <activity android:name="implement_taobao_home_page.TestTaobaoHomePageActivity" />
+        <activity android:name=".TestGoogleFlexboxLayoutActivity" />
+        <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity"></activity>
+        <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" /> <!-- swipeRefresh_viewpage滑动冲突特殊之处 -->
+        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main"></activity>
+        <activity android:name=".TestViewPagerActivity" />
     </application>
 
 </manifest>
