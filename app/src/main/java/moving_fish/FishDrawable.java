@@ -14,9 +14,11 @@ public class FishDrawable extends Drawable {
 
     //鱼头部半径
     private static final float HEAD_RADIUS = 110.0f;
+    private static final float FISH_BODY_LEN = HEAD_RADIUS*3.2f;
     //躯干中点坐标
     private PointF middlePoint;
     private Paint paint;
+    private  float fishAngle;
 
     public FishDrawable() {
         initPaint();
@@ -34,7 +36,17 @@ public class FishDrawable extends Drawable {
     //TODO 绘制的时候会调用这个方法
     @Override
     public void draw(@NonNull Canvas canvas) {
+        drawHead(canvas);
 
+
+        canvas.drawRect(0,0,getIntrinsicWidth(),getIntrinsicHeight(),paint);
+    }
+
+    //画鱼头
+    private void drawHead(@NonNull Canvas canvas) {
+
+        PointF headPoint = calculatePoint(middlePoint, FISH_BODY_LEN / 2, fishAngle);
+        canvas.drawCircle(headPoint.x,headPoint.y,HEAD_RADIUS,paint);
     }
 
     //TODO 设置Drawable的透明度
@@ -72,5 +84,20 @@ public class FishDrawable extends Drawable {
     @Override
     public int getIntrinsicHeight() {
         return (int) (8.38f * HEAD_RADIUS);
+    }
+
+    /***
+     *
+     * @param startPoint
+     * @param length
+     * @param angle  鱼当前的朝向
+     * @return
+     */
+    public PointF calculatePoint(PointF startPoint, float length, float angle) {
+
+        float deltaX = (float) (Math.cos(Math.toRadians(angle)) * length);
+        float deltaY = (float) (Math.sin(Math.toRadians(angle) - 180) * length);
+        return new PointF(startPoint.x + deltaX, startPoint.y + deltaY);
+
     }
 }
