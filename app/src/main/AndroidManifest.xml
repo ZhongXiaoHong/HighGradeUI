@@ -28,7 +28,6 @@
         </activity>
 
 
-
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewActivity" />

@@ -22,7 +22,6 @@ class KotlinFlowLayout constructor(context:Context): ViewGroup(context){
 
 
 
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
        //TODO  onMeasure可能会被调用多次
@@ -47,7 +46,7 @@ class KotlinFlowLayout constructor(context:Context): ViewGroup(context){
         }
 
         //TODO 【3】计算自身的测量宽高
-        var wrapContentWH = getwrapContentWH();
+        var wrapContentWH = getwrapContentWH()
         val measureW = if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) MeasureSpec.getSize(widthMeasureSpec) else wrapContentWH[0]
         val measureH = if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY) MeasureSpec.getSize(heightMeasureSpec) else wrapContentWH[1]
         setMeasuredDimension(measureW,measureH)

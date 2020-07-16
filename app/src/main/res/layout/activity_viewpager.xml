@@ -7,13 +7,14 @@
     android:orientation="vertical">
 
 
-  
-
-    <com.google.android.material.tabs.TabLayout
-        app:tabMode="scrollable"
-        android:id="@+id/tablayout"
-        android:layout_width="match_parent"
+    <toutiao_indicator_text.ToutiaoIndicatorView
+        android:layout_width="wrap_content"
+        android:text="许国威很骚"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"/>
+
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/id_viewpager"
         android:layout_width="match_parent"

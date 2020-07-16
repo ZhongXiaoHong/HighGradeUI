@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Random;
 
-public class TagFragment extends Fragment
+public class TabFragment extends Fragment
 {
     // private String[] mTitles = new String[]{"关注", "热点", "推荐", "长沙", "广州", "深圳", "东莞", "佛山", "惠州", "珠海", "中山", "江门"};
     public static final String TITLE = "title";
@@ -44,9 +44,9 @@ public class TagFragment extends Fragment
 
     }
 
-    public static TagFragment newInstance(String title)
+    public static TabFragment newInstance(String title)
     {
-        TagFragment tabFragment = new TagFragment();
+        TabFragment tabFragment = new TabFragment();
         Bundle bundle = new Bundle();
         bundle.putString(TITLE, title);
         tabFragment.setArguments(bundle);

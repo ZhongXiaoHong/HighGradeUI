@@ -7,10 +7,6 @@
     tools:context="toutiao_indicator_text.SimpleColorChangeTextViewActivity">
 
     <toutiao_indicator_text.SimpleColorChangeTextView
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d02d6803fbf14ff4af8015213f22210eb392392
         android:id="@+id/st"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
