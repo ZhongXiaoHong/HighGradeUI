@@ -35,8 +35,8 @@ public class SimpleColorChangeTextViewActivity extends AppCompatActivity {
             public void run() {
                 ObjectAnimator animator = ObjectAnimator.ofFloat(st, "persent", 0, 1);
                 animator.setDuration(2000);
-
                 animator.start();
+
             }
 
         }, 2000);
