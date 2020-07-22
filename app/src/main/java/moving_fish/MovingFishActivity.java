@@ -1,5 +1,6 @@
 package moving_fish;
 
+import androidx.annotation.IntDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import com.silang.highgradeui.R;
 
 public class MovingFishActivity extends AppCompatActivity {
+
 
     ImageView  imageView;
     @Override
@@ -35,5 +37,11 @@ public class MovingFishActivity extends AppCompatActivity {
             }
         },2000);
 
+    //    imageView.setVisibility(1);
+
     }
+
+//    private   void   test( @IntDef int i){
+//
+//    }
 }
