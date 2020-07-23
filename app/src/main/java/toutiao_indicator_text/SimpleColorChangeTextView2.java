@@ -70,11 +70,11 @@ public class SimpleColorChangeTextView2 extends AppCompatTextView {
         paint.setColor(Color.BLACK);
         float textWith = paint.measureText(text);
         paint.setTextAlign(Paint.Align.LEFT);
-        paint.setTextSize(60);
+        paint.setTextSize(300);
         float start = getWidth() / 2 - textWith / 2 + textWith*persent;
         canvas.clipRect(start,0,getWidth(),getHeight());
        // canvas.drawRect(right,top,getWidth(),bottom,paint);
-        canvas.drawText(text, getWidth()/2-textWith/2, getHeight() / 2 - detaY, paint);
+        canvas.drawText(text, getWidth()/2-textWith/2, getHeight() / 2 - (fm.ascent + fm.descent)/2, paint);
         canvas.restore();
 
 

@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class StartItemDecoration extends RecyclerView.ItemDecoration {
     private int groupHeadrHeight;
     private Paint mPaint = new Paint();
+    private Paint mtvPaint = new Paint();
 
     public StartItemDecoration(Context context) {
         groupHeadrHeight = dp2px(context, 100);
         mPaint.setColor(Color.GREEN);
+        mtvPaint.setColor(Color.WHITE);
+        mtvPaint.setTextSize(50);
     }
 
     @Override
@@ -33,11 +36,17 @@ public class StartItemDecoration extends RecyclerView.ItemDecoration {
                 boolean isHead = starAdapter.isGroupHeader(pos);
                 int decorationHeight = isHead ? groupHeadrHeight : 1;
                 mPaint.setColor(isHead ? Color.RED : Color.GREEN);
-                c.drawRect(left, view.getTop()-decorationHeight, right, view.getTop(), mPaint);
+                c.drawRect(left, view.getTop() - decorationHeight, right, view.getTop(), mPaint);
 
-                if(isHead){
+                if (isHead) {
                     String groupName = starAdapter.getGoupName(pos);
-                    c.drawText(groupName,);}
+                    float len = mPaint.measureText(groupName);
+                    Paint.FontMetrics fm = mPaint.getFontMetrics();
+                    float detaY = ((fm.ascent - fm.descent) / 2 - fm.descent) / 2;
+                    float realCenterLine = view.getTop()-groupHeadrHeight+view.getHeight()/2 - (fm.ascent+fm.descent)/2;
+                  //  c.drawText(groupName, 20, realCenterLine+view.getHeight()*pos, mtvPaint);
+                    c.drawText(groupName, 20, realCenterLine, mtvPaint);
+                }
             }
 
         }
