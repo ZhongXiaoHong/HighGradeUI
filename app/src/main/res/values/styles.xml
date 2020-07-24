@@ -19,5 +19,9 @@
         <item name="android:windowBackground">@drawable/p_login_bg</item>
     </style>
 
+    <style name="ToolbarTheme">
+        <item name="actionMenuTextColor">@color/text_color</item>
+    </style>
+
 
 </resources>

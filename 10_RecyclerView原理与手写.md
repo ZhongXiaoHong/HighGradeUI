@@ -1,16 +1,22 @@
-> RecyclerView的复用流程
+> RecyclerView的复用流程,索要VH
 
 onTouchEvent（ACTION_MOVE）----->scrollByInternal----------scrollStep--------mLayout.scrollVerticallyBy------scrollBy
 
 --------------fill--------------layoutChunk----------    View view = layoutState.next(recycler)///addView
 
 
-next---->getViewForPosition-----------tryGetViewHolderForPositionByDeadline从缓存中获取获取View,四级缓存
+
+
+
+layoutState.next---->recycler.getViewForPosition-----------recycler.tryGetViewHolderForPositionByDeadline从缓存中获取获取View,四级缓存
+
+
+
+tryGetViewHolderForPositionByDeadline具体逻辑
 
 四级缓存查找：分几种情况获取VH
 
-getChangedScrapViewForPosition-----find by position///find by id    与动画相关
-
+【1】getChangedScrapViewForPosition-----find by position///find by id    与动画相关  mChangedScrap
 
 getScrapOrHiddenOrCachedHolderForPosition  主要根据位置从mAttachedScrap  mCachedViews中回收
 getScrapOrCachedViewForId 主要ViewType Id位置从mAttachedScrap  mCachedViews中回收
@@ -18,8 +24,19 @@ getScrapOrCachedViewForId 主要ViewType Id位置从mAttachedScrap  mCachedViews
 
 getViewForPositionAndType  从自定义缓存中找
 
-
 getRecycledViewPool().getRecycledView(type); 从缓存池中获取
+
+
+
+疑问四级缓存安排的顺序为什么要这么设计
+
+【1】 什么VH会被保存在mAttachedScrap     什么会被保存在mCachedViews  什么时候保存在mChangedScrap 什么时候保存在recyclerPool
+
+
+
+
+
+
 
 > RecyclerView的四级缓存
 
@@ -41,7 +58,7 @@ tryBindViewHolderByDeadline(holder, offsetPosition, position, deadlineNs);------
 
 ```
 
-> 缓存机制
+> 缓存机制,VH存起来
 
 ```
 LM#onLayoutChildren-----detachAndScrapAttachedViews----scrapOrRecycleView----【if】recycleViewHolderInternal(处理CacheView、recyclerPool的缓存)///VH不变缓存到CacheView ，cacheView的size大于规定数目，调recycleCachedViewAt将多出的VH移除清数据梵高recyclerPool( addViewHolderToRecycledViewPool)   ///缓存到RecyclerPool  addViewHolderToRecycledViewPool--   getRecycledViewPool().putRecycledView(holder);
