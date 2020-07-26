@@ -14,9 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <!--测试RecyclerView 四种缓存的含义-->
-        <activity android:name="com.joker.recyclerviewtest.TestRecyclerviewCacheSystemActivity">
+        <activity android:name="recyclerview.ArcLayoutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,22 +22,18 @@
             </intent-filter>
 
         </activity>
+        <!-- 测试ItemTouchHelper -->
+        <activity android:name="recyclerview.TestItemTouchHelperActivity"></activity>
+        <activity android:name="com.TestActivity"></activity> <!-- 模仿探探 -->
+        <activity android:name="recyclerview.TanTanActivity">
 
-        <activity android:name="recyclerview.RecyclerViewActivity">
-
-        </activity>
-        <activity android:name="moving_fish.KotlinMovingFishActivity"></activity>
-        <activity android:name="moving_fish.MovingFishActivity">
-
-        </activity>
-        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity2" >
-
-
-        </activity>
-        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity" >
-
-
-        </activity>
+        </activity> <!-- 测试RecyclerView 四种缓存的含义 -->
+        <activity android:name="com.joker.recyclerviewtest.TestRecyclerviewCacheSystemActivity" />
+        <activity android:name="recyclerview.RecyclerViewActivity" />
+        <activity android:name="moving_fish.KotlinMovingFishActivity" />
+        <activity android:name="moving_fish.MovingFishActivity" />
+        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity2" />
+        <activity android:name="toutiao_indicator_text.SimpleColorChangeTextViewActivity" />
         <activity android:name="toutiao_indicator_text.ViewPagerActivity" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivityFix" />
         <activity android:name="implement_taobao_home_page.NestedScrollViewRecyclerViewWithStickyHeaderActivity" />

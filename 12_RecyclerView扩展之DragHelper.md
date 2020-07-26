@@ -1,22 +1,14 @@
-> RecyclerView+LinearLayoutManager分析复用流程
+> RecyclerView的复用流程,索要VH
 
-onTouchEvent（ACTION_MOVE）----->scrollByInternal----------scrollStep--------
+onTouchEvent（ACTION_MOVE）----->scrollByInternal----------scrollStep--------mLayout.scrollVerticallyBy------scrollBy
 
-
-
-【计算滑动的数值，获取view   addView】
-
-mLayout.scrollVerticallyBy【左边还是属于RV固定逻辑，如果是自定义LayoutManager，scrollVerticallyBy要重写】------mLayout.scrollBy
-
---------------mLayout.fill--------------mLayout.layoutChunk----------    View view = layoutState.next(recycler)///addView---layoutDecoratedWithMargins
+--------------fill--------------layoutChunk----------    View view = layoutState.next(recycler)///addView
 
 
 
 
 
-layoutState.next-
-
---->recycler.getViewForPosition-----------recycler**.tryGetViewHolderForPositionByDeadline**从缓存中获取获取View,四级缓存
+layoutState.next---->recycler.getViewForPosition-----------recycler**.tryGetViewHolderForPositionByDeadline**从缓存中获取获取View,四级缓存
 
 
 
@@ -73,10 +65,7 @@ LM#onLayoutChildren-----detachAndScrapAttachedViews----scrapOrRecycleView----
 ```
 
 ```
-Rv#onLayout----dispatchLayout----dispatchLayoutStep2---   mLayout.onLayoutChildren(mRecycler, mState);-----fill-
-
-fill
------------recycleByLayoutState----------   recycleViewsFromStart 向上话缓存头部的VH-----------recycleChildren---removeAndRecycleViewAt-----   recycler.recycleView(view);----recycleViewHolderInternal相当于上面的if
+Rv#onLayout----dispatchLayout----dispatchLayoutStep2---   mLayout.onLayoutChildren(mRecycler, mState);-----fill------------recycleByLayoutState----------   recycleViewsFromStart 向上话缓存头部的VH-----------recycleChildren---removeAndRecycleViewAt-----   recycler.recycleView(view);----recycleViewHolderInternal
 
 ```
 
