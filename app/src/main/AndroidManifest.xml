@@ -14,20 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="viewpager.ViewPagerActivity"></activity>
         <activity android:name="recyclerview.ArcLayoutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <!-- 测试ItemTouchHelper -->
-        <activity android:name="recyclerview.TestItemTouchHelperActivity"></activity>
-        <activity android:name="com.TestActivity"></activity> <!-- 模仿探探 -->
-        <activity android:name="recyclerview.TanTanActivity">
-
-        </activity> <!-- 测试RecyclerView 四种缓存的含义 -->
+        </activity> <!-- 测试ItemTouchHelper -->
+        <activity android:name="recyclerview.TestItemTouchHelperActivity" />
+        <activity android:name="com.TestActivity" /> <!-- 模仿探探 -->
+        <activity android:name="recyclerview.TanTanActivity"></activity> <!-- 测试RecyclerView 四种缓存的含义 -->
         <activity android:name="com.joker.recyclerviewtest.TestRecyclerviewCacheSystemActivity" />
         <activity android:name="recyclerview.RecyclerViewActivity" />
         <activity android:name="moving_fish.KotlinMovingFishActivity" />
