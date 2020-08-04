@@ -35,7 +35,8 @@ public class ViewPagerActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Object instantiateItem(@NonNull ViewGroup container, int position) {
-               container.addView();
+              // container.addView();
+                return null;
             }
 
             @Override

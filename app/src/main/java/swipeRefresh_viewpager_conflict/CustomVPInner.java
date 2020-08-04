@@ -28,7 +28,7 @@ public class CustomVPInner extends ViewPager {
     public boolean dispatchTouchEvent(MotionEvent ev) {
 
         //TODO 使用内部拦截法
-        innerIntercept(ev);
+      //  innerIntercept(ev);
         return super.dispatchTouchEvent(ev);
     }
 
@@ -57,8 +57,8 @@ public class CustomVPInner extends ViewPager {
 
     //TODO 内部拦截方法，强制设置Vp是嵌套滑动
     //TODO 这样requestDisallowInterceptTouchEvent才会生效
-    @Override
-    public boolean isNestedScrollingEnabled() {
-        return true;//super.isNestedScrollingEnabled();
-    }
+//    @Override
+//    public boolean isNestedScrollingEnabled() {
+//        return true;//super.isNestedScrollingEnabled();
+//    }
 }

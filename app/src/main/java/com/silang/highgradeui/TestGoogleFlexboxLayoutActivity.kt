@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_test_google_flexbox_layout.*
 class TestGoogleFlexboxLayoutActivity : AppCompatActivity() {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

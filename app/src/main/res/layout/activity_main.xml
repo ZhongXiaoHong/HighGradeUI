@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/tv"
             android:background="@color/colorAccent"
             android:text="bbbbbb"
             android:layout_width="wrap_content"

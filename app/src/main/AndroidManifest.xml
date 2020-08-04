@@ -16,11 +16,7 @@
         android:theme="@style/AppTheme">
         <activity android:name="viewpager.ViewPagerActivity"></activity>
         <activity android:name="recyclerview.ArcLayoutActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity> <!-- 测试ItemTouchHelper -->
         <activity android:name="recyclerview.TestItemTouchHelperActivity" />
         <activity android:name="com.TestActivity" /> <!-- 模仿探探 -->
@@ -40,7 +36,14 @@
         <activity android:name=".TestGoogleFlexboxLayoutActivity" />
         <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity" />
         <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" /> <!-- swipeRefresh_viewpage滑动冲突特殊之处 -->
-        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main" />
+        <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".TestViewPagerActivity" />
     </application>
 

@@ -72,7 +72,58 @@ ViewPager预加载机制提前加载两三个，甚至更多页面的数
 
 
 
+**FragmentPagerAdapter**
 
+
+
+```java
+public void setPrimaryItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        Fragment fragment = (Fragment)object;
+        if (fragment != mCurrentPrimaryItem) {
+            if (mCurrentPrimaryItem != null) {
+             
+                mCurrentPrimaryItem.setMenuVisibility(false);
+                if (mBehavior == BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+                    if (mCurTransaction == null) {
+                        mCurTransaction = mFragmentManager.beginTransaction();
+                    }
+                    mCurTransaction.setMaxLifecycle(mCurrentPrimaryItem, Lifecycle.State.STARTED);
+                } else {
+                    //TODO 当前的mcurrentFragment设置hint为false
+                    mCurrentPrimaryItem.setUserVisibleHint(false);
+                }
+            }
+            fragment.setMenuVisibility(true);
+            if (mBehavior == BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+                if (mCurTransaction == null) {
+                    mCurTransaction = mFragmentManager.beginTransaction();
+                }
+                mCurTransaction.setMaxLifecycle(fragment, Lifecycle.State.RESUMED);
+            } else {
+                //TODO 马上要显示的mcurrentFragment设置hint为true
+                fragment.setUserVisibleHint(true);
+            }
+
+            mCurrentPrimaryItem = fragment;
+        }
+```
+
+所以setprimaryItem中会调用方法setUserVisiableHint来设置当前Fragment不可见，马上要加载的fragment为可见，
+
+```java
+  @Override
+    public void finishUpdate(@NonNull ViewGroup container) {
+        if (mCurTransaction != null) {
+            //TODO  这里才是真正的开始提交Fragment,fragment开始生命周期调用
+            mCurTransaction.commitNowAllowingStateLoss();
+            mCurTransaction = null;
+        }
+    }
+```
+
+因此ViewPager中的fragment的setUservisiableHint的调用是早于生命周期的调用的
+
+**总结：setuserVivisiableHit函数不是Fragment的生命周期函数，但是比Fragment生命周期函数先执行**
 
 
 

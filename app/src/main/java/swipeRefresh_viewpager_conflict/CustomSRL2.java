@@ -27,7 +27,8 @@ public class CustomSRL2 extends SwipeRefreshLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
-        return innerIntercept(ev);
+        return super.onInterceptTouchEvent(ev);
+       // return innerIntercept(ev);
         // return outerIntercept(ev);
 
     }
@@ -64,23 +65,23 @@ public class CustomSRL2 extends SwipeRefreshLayout {
     }
 
     Method method;
-
-    @Override
-    public void requestDisallowInterceptTouchEvent(boolean b) {
-        // super.requestDisallowInterceptTouchEvent(b);
-        //TODO  为了向下兼容
-
-
-        try {
-            if (method == null) {
-                Class<ViewGroup> clazz = ViewGroup.class;
-                method = clazz.getDeclaredMethod("requestDisallowInterceptTouchEvent", boolean.class);
-            }
-            method.setAccessible(true);
-            Object obj = (ViewGroup)this;
-            method.invoke(obj, b);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//
+//    @Override
+//    public void requestDisallowInterceptTouchEvent(boolean b) {
+//        // super.requestDisallowInterceptTouchEvent(b);
+//        //TODO  为了向下兼容
+//
+//
+//        try {
+//            if (method == null) {
+//                Class<ViewGroup> clazz = ViewGroup.class;
+//                method = clazz.getDeclaredMethod("requestDisallowInterceptTouchEvent", boolean.class);
+//            }
+//            method.setAccessible(true);
+//            Object obj = (ViewGroup)this;
+//            method.invoke(obj, b);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
