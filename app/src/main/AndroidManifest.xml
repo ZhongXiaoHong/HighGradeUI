@@ -14,13 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="viewpager.ViewPagerActivity"></activity>
-        <activity android:name="recyclerview.ArcLayoutActivity">
+        <activity android:name="swipeRefresh_viewpager_conflict.TestSwipeAndVpActivity">
 
-        </activity> <!-- 测试ItemTouchHelper -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name="viewpager.ViewPagerActivity" />
+        <activity android:name="recyclerview.ArcLayoutActivity"></activity> <!-- 测试ItemTouchHelper -->
         <activity android:name="recyclerview.TestItemTouchHelperActivity" />
         <activity android:name="com.TestActivity" /> <!-- 模仿探探 -->
-        <activity android:name="recyclerview.TanTanActivity"></activity> <!-- 测试RecyclerView 四种缓存的含义 -->
+        <activity android:name="recyclerview.TanTanActivity" /> <!-- 测试RecyclerView 四种缓存的含义 -->
         <activity android:name="com.joker.recyclerviewtest.TestRecyclerviewCacheSystemActivity" />
         <activity android:name="recyclerview.RecyclerViewActivity" />
         <activity android:name="moving_fish.KotlinMovingFishActivity" />
@@ -37,11 +44,6 @@
         <activity android:name=".TestGoogleFlexboxLayoutWithRecyclerViewActivity" />
         <activity android:name="dynamic_change_skin.TestResourceImplUsageActivity" /> <!-- swipeRefresh_viewpage滑动冲突特殊之处 -->
         <activity android:name="swipeRefresh_viewpager_conflict.SRL_VP_main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".TestViewPagerActivity" />
